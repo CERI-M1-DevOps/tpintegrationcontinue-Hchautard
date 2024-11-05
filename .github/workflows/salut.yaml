@@ -7,7 +7,7 @@ jobs:
   name: Salutations
   runs-on: ubuntu-latest # OS où s'exécute le job
   steps:
-    - name: Hello #une tâche pour saluer
+  - name: Hello #une tâche pour saluer
     env:
       personneASaluer: 'Mon voisin Totoro'
     run: echo "Bonjour ${personneASaluer}"
