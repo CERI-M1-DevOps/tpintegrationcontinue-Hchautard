@@ -3,16 +3,12 @@ name: Documentation
 on:
   pull_request:
     types:
-      - closed  # Trigger on pull requests being closed
-    branches:
-      - main  # Trigger only on the main branch
+      - merged
 
 jobs:
   deploy:
     if: github.event.pull_request.merged == true  # Check if PR was merged
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
 
     steps:
       - name: Checkout repository
@@ -27,12 +23,8 @@ jobs:
       - name: Generate Javadoc
         run: mvn -B javadoc:javadoc
 
-      - name: List Generated Javadoc
-        run: ls -R ./target/site/apidocs
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./target/site/apidocs  # Path to the generated Javadoc
-          enable_jekyll: true
