@@ -62,6 +62,21 @@ class ListeSimpleTest {
     }
 
     @Test
+    void modifiePremierElementNonExistant() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        listeATester.ajout(3);
+
+        // Attempt to modify a non-existing element (e.g., 4, which is not in the list)
+        listeATester.modifiePremier(4, 5);
+
+        // The list should remain unchanged
+        assertEquals("ListeSimple(Noeud(3), Noeud(2), Noeud(1))", listeATester.toString());
+        assertEquals(3, listeATester.getSize());
+    }
+
+
+    @Test
     void modifieTous() {
         listeATester.ajout(1);
         listeATester.ajout(2);
