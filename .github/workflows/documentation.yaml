@@ -3,9 +3,7 @@ name: Documentation
 on:
   pull_request:
     types:
-      - closed  # Trigger on pull requests being closed
-    branches:
-      - main  # Trigger only on the main branch
+      - merged
 
 jobs:
   deploy:
@@ -30,4 +28,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./target/site/apidocs  # Path to the generated Javadoc
-          jeckyll: false
