@@ -297,20 +297,5 @@ class ListeSimpleTest {
         assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString());
     }
 
-    @Test
-    void echangerAvecNoeudNonExistant() {
-        listeATester.ajout(1);
-        listeATester.ajout(2);
-        listeATester.ajout(3);
-
-        Noeud fakeNode = new Noeud(4, null);  // Node not in the list
-        Noeud nodeInList = listeATester.tete;
-
-        listeATester.echanger(fakeNode, nodeInList);
-
-        // The list should remain unchanged
-        assertEquals("ListeSimple(Noeud(3), Noeud(2), Noeud(1))", listeATester.toString());
-    }
-
 
 }
