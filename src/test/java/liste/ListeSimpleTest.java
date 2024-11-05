@@ -75,6 +75,21 @@ class ListeSimpleTest {
         assertEquals(3, listeATester.getSize());
     }
 
+    @Test
+    void supprimePremierElementNonExistant() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        listeATester.ajout(3);
+
+        // Attempt to remove a non-existing element (e.g., 4, which is not in the list)
+        listeATester.supprimePremier(4);
+
+        // The list should remain unchanged
+        assertEquals("ListeSimple(Noeud(3), Noeud(2), Noeud(1))", listeATester.toString());
+        assertEquals(3, listeATester.getSize());
+    }
+
+
 
     @Test
     void modifieTous() {
@@ -269,4 +284,33 @@ class ListeSimpleTest {
         System.out.println(listeATester);
         assertEquals("ListeSimple(Noeud(4), Noeud(2), Noeud(3), Noeud(1), Noeud(5))", listeATester.toString());
     }
+
+    @Test
+    void echangerMemeNoeud() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        Noeud noeud = listeATester.tete;
+        
+        listeATester.echanger(noeud, noeud);  // Trying to swap the same node
+        
+        // The list should remain unchanged
+        assertEquals("ListeSimple(Noeud(2), Noeud(1))", listeATester.toString());
+    }
+
+    @Test
+    void echangerAvecNoeudNonExistant() {
+        listeATester.ajout(1);
+        listeATester.ajout(2);
+        listeATester.ajout(3);
+
+        Noeud fakeNode = new Noeud(4, null);  // Node not in the list
+        Noeud nodeInList = listeATester.tete;
+
+        listeATester.echanger(fakeNode, nodeInList);
+
+        // The list should remain unchanged
+        assertEquals("ListeSimple(Noeud(3), Noeud(2), Noeud(1))", listeATester.toString());
+    }
+
+
 }
