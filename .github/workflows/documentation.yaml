@@ -22,6 +22,9 @@ jobs:
       - name: Generate Javadoc
         run: mvn -B javadoc:javadoc
 
+      - name: Create .nojekyll file
+        run: echo "" > ./target/site/apidocs/.nojekyll
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
