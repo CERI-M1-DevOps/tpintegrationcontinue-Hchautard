@@ -148,6 +148,11 @@ class ListeSimpleTest {
         assertEquals(0, listeATester.getSize());
     }
 
+    /**
+     * Test supprimeTous() en supprimant un élément qui apparait une seule fois au d but de la liste.
+     * La liste initiale est [3, 2, 1] et l' l ment  supprim  est 3.
+     * La liste attendue est [2, 1] et sa taille est 2.
+     */
     @Test
     void supprimeTousUneSeuleFoisAuDebut() {
         listeATester.ajout(1);
