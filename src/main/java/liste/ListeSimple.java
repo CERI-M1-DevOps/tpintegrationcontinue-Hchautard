@@ -1,5 +1,10 @@
 package liste;
 
+/**
+ * Une liste simple d'entiers.
+ * La liste est représentée par une référence vers le premier Noeud de la liste.
+ * La taille de la liste est maintenue à jour.
+ */
 public class ListeSimple {
     private long size;
     Noeud tete;
