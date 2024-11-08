@@ -2,8 +2,7 @@ name: Documentation
 
 on:
   pull_request:
-    types:
-      - merged
+    types: [closed, merged]
 
 jobs:
   deploy:
